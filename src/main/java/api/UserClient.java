@@ -17,15 +17,6 @@ public class UserClient {
                 .when()
                 .post(REGISTER_URL);
     }
-//    @Step("Авторизация пользователя")
-//    public Response loginUser(UserCreds userCreds) {
-//        return given()
-//                .header("Content-type", "application/json")
-//                .and()
-//                .body(userCreds)
-//                .when()
-//                .post(LOGIN_URL);
-//    }
     @Step("Удаление пользователя")
     public Response deleteUser(){
         return given()

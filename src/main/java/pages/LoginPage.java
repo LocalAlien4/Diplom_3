@@ -13,7 +13,6 @@ import static utils.Constants.LOGIN_PAGE_URI;
 
 public class LoginPage {
     WebDriver driver;
- //   private By registrationButton = By.xpath(".//a[text()='Зарегистрироваться']");
     private By emailField = By.xpath(".//label[text()='Email']//following-sibling::input");
     private By passwordField = By.xpath(".//label[text()='Пароль']//following-sibling::input");
     private By loginButton = By.xpath(".//button[text()='Войти']");
@@ -35,10 +34,6 @@ public class LoginPage {
     public boolean checkLoginText() {
         return driver.findElement(loginText).isDisplayed();
     }
-//    @Step("Нажать на кнопку зарегистрироваться")
-//    public void clickRegistration() {
-//        driver.findElement(registrationButton).click();
-//    }
     @Step("Заполнить поле email")
     public void inputEmail(User user) {
         driver.findElement(emailField).click();

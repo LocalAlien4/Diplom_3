@@ -16,10 +16,6 @@ public class PersonalAccountPage {
     public PersonalAccountPage(WebDriver driver){
         this.driver=driver;
     }
-//    @Step("Перейти на страницу личного кабинета")
-//    public void open() {
-//        driver.get(PROFILE_URI);
-//    }
     @Step("Дождаться загрузки профиля")
     public void waitAccountPage(){
         new WebDriverWait(driver, Duration.ofSeconds(3))

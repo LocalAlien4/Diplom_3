@@ -12,14 +12,17 @@ import static utils.Constants.BASE_URI;
 
 public class MainPage {
     WebDriver driver;
+    String statusBuns;
+    String statusSauce;
+    String statusFillings;
     private By personalAccountButton = By.xpath(".//p[text()='Личный Кабинет']");
     private By loginButton = By.xpath(".//button[text()='Войти в аккаунт']");
     private By bunSelectButton = By.xpath(".//span[text()='Булки']");
-    private By bunText = By.xpath(".//h2[text()='Булки']");
+    private By bunParent = By.xpath(".//span[text()='Булки']/..");
     private By sauceSelectButton = By.xpath(".//span[text()='Соусы']");
-    private By sauceText = By.xpath(".//h2[text()='Соусы']");
+    private By sauceParent = By.xpath(".//span[text()='Соусы']/..");
     private By fillingSelectButton = By.xpath(".//span[text()='Начинки']");
-    private By fillingText = By.xpath(".//h2[text()='Начинки']");
+    private By fillingParent = By.xpath(".//span[text()='Начинки']/..");
     private By orderButton = By.xpath(".//button[text()='Оформить заказ']");
 
     public MainPage(WebDriver driver){
@@ -48,26 +51,32 @@ public class MainPage {
     }
     @Step("Перейти в конструкторе в раздел Булки")
     public void clickBuns() {
+        statusBuns = driver.findElement(bunParent).getAttribute("class");
         driver.findElement(bunSelectButton).click();
     }
-    @Step("Проверить что отображается текст Булки в конструкторе")
+    @Step("Проверить что таб теперь на Булки в конструкторе")
     public boolean checkBuns() {
-        return driver.findElement(bunText).isDisplayed();
+        String newStatus = driver.findElement(bunParent).getAttribute("class");
+        return newStatus.equals(statusBuns);
     }
     @Step("Перейти в конструкторе в раздел Соусы")
     public void clickSauce() {
+        statusSauce = driver.findElement(sauceParent).getAttribute("class");
         driver.findElement(sauceSelectButton).click();
     }
-    @Step("Проверить что отображается текст Соусы в конструкторе")
+    @Step("Проверить что таб теперь на Соусы в конструкторе")
     public boolean checkSauce() {
-        return driver.findElement(sauceText).isDisplayed();
+        String newStatus = driver.findElement(sauceParent).getAttribute("class");
+        return newStatus.equals(statusSauce);
     }
     @Step("Перейти в конструкторе в раздел Начинки")
     public void clickFilling() {
+        statusFillings = driver.findElement(fillingParent).getAttribute("class");
         driver.findElement(fillingSelectButton).click();
     }
     @Step("Проверить что отображается текст Начинки в конструкторе")
     public boolean checkFilling() {
-        return driver.findElement(fillingText).isDisplayed();
+        String newStatus = driver.findElement(fillingParent).getAttribute("class");
+        return newStatus.equals(statusFillings);
     }
 }

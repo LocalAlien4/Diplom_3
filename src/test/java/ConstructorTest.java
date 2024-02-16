@@ -7,8 +7,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import pages.MainPage;
 
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.assertFalse;
 public class ConstructorTest {
     private WebDriver driver;
     @Before
@@ -24,7 +23,7 @@ public class ConstructorTest {
         mainPage.open();
         mainPage.clickFilling();
         mainPage.clickBuns();
-        assertTrue(mainPage.checkBuns());
+        assertFalse(mainPage.checkBuns());
     }
     @Test
     @DisplayName("Переход к разделу Соусы")
@@ -34,7 +33,7 @@ public class ConstructorTest {
         mainPage.open();
         mainPage.clickFilling();
         mainPage.clickSauce();
-        assertTrue(mainPage.checkSauce());
+        assertFalse(mainPage.checkSauce());
     }
     @Test
     @DisplayName("Переход к разделу Начинки")
@@ -43,7 +42,7 @@ public class ConstructorTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.open();
         mainPage.clickFilling();
-        assertTrue(mainPage.checkFilling());
+        assertFalse(mainPage.checkFilling());
     }
     @After
     public void tearDown() {

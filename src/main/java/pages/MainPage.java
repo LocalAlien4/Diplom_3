@@ -56,8 +56,8 @@ public class MainPage {
     }
     @Step("Проверить что таб теперь на Булки в конструкторе")
     public boolean checkBuns() {
-        String newStatus = driver.findElement(bunParent).getAttribute("class");
-        return newStatus.equals(statusBuns);
+        boolean newStatus = driver.findElement(bunParent).getAttribute("class").contains("tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect");
+        return newStatus;
     }
     @Step("Перейти в конструкторе в раздел Соусы")
     public void clickSauce() {
@@ -66,8 +66,8 @@ public class MainPage {
     }
     @Step("Проверить что таб теперь на Соусы в конструкторе")
     public boolean checkSauce() {
-        String newStatus = driver.findElement(sauceParent).getAttribute("class");
-        return newStatus.equals(statusSauce);
+        boolean newStatus = driver.findElement(sauceParent).getAttribute("class").contains("tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect");
+        return newStatus;
     }
     @Step("Перейти в конструкторе в раздел Начинки")
     public void clickFilling() {
@@ -76,7 +76,7 @@ public class MainPage {
     }
     @Step("Проверить что отображается текст Начинки в конструкторе")
     public boolean checkFilling() {
-        String newStatus = driver.findElement(fillingParent).getAttribute("class");
-        return newStatus.equals(statusFillings);
+        boolean newStatus = driver.findElement(fillingParent).getAttribute("class").contains("tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect");
+        return newStatus;
     }
 }
